@@ -21,6 +21,8 @@ namespace finalProject
         public Form1()
         {
             InitializeComponent();
+            check(textBox1);
+
         }
 
         Random rand = new Random();
@@ -132,6 +134,36 @@ namespace finalProject
             textBox28.Text = ("");
             textBox29.Text = ("");
             textBox30.Text = ("");
+            textBox1.BackColor = Color.White;
+            textBox2.BackColor = Color.White;
+            textBox3.BackColor = Color.White;
+            textBox4.BackColor = Color.White;
+            textBox5.BackColor = Color.White;
+            textBox6.BackColor = Color.White;
+            textBox7.BackColor = Color.White;
+            textBox8.BackColor = Color.White;
+            textBox9.BackColor = Color.White;
+            textBox10.BackColor = Color.White;
+            textBox11.BackColor = Color.White;
+            textBox12.BackColor = Color.White;
+            textBox13.BackColor = Color.White;
+            textBox14.BackColor = Color.White;
+            textBox15.BackColor = Color.White;
+            textBox16.BackColor = Color.White;
+            textBox17.BackColor = Color.White;
+            textBox18.BackColor = Color.White;
+            textBox19.BackColor = Color.White;
+            textBox20.BackColor = Color.White;
+            textBox21.BackColor = Color.White;
+            textBox22.BackColor = Color.White;
+            textBox23.BackColor = Color.White;
+            textBox24.BackColor = Color.White;
+            textBox25.BackColor = Color.White;
+            textBox26.BackColor = Color.White;
+            textBox27.BackColor = Color.White;
+            textBox28.BackColor = Color.White;
+            textBox29.BackColor = Color.White;
+            textBox30.BackColor = Color.White;
             numberOfGuesses = 6;
 
             label3.Text = answer.ToString();
@@ -139,14 +171,14 @@ namespace finalProject
 
         private void check(TextBox text)
         {
-            if(text.Text != answer)
+            if (text.Text != "")
             {
-
+                text.Enabled = false;
             }
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
-        {
+        {   
             if ((numberOfGuesses == 6 && textBox1.Text != ("") && textBox2.Text != ("") && textBox3.Text != ("") && textBox4.Text != ("") && textBox5.Text != ("")) || (numberOfGuesses == 5 && textBox6.Text != ("") && textBox7.Text != ("") && textBox8.Text != ("") && textBox9.Text != ("") && textBox10.Text != ("")) || (numberOfGuesses == 4 && textBox11.Text != ("") && textBox12.Text != ("") && textBox13.Text != ("") && textBox14.Text != ("") && textBox15.Text != ("")) || (numberOfGuesses == 3 && textBox16.Text != ("") && textBox17.Text != ("") && textBox18.Text != ("") && textBox19.Text != ("") && textBox20.Text != ("")) || (numberOfGuesses == 2 && textBox21.Text != ("") && textBox22.Text != ("") && textBox23.Text != ("") && textBox24.Text != ("") && textBox25.Text != ("")) || (numberOfGuesses == 1 && textBox26.Text != ("") && textBox27.Text != ("") && textBox28.Text != ("") && textBox29.Text != ("") && textBox30.Text != ("")))
             {
                 if (e.KeyCode == Keys.Enter)
@@ -162,7 +194,7 @@ namespace finalProject
                     {
                         numberOfGuesses--;
                         checkForGreen(textBox26, textBox27, textBox28, textBox29, textBox30);
-                        checkForYellow(textBox26, textBox27, textBox28, textBox29, textBox30);
+                        //checkForYellow(textBox26, textBox27, textBox28, textBox29, textBox30);
                         textBox26.Enabled = false;
                         textBox27.Enabled = false;
                         textBox28.Enabled = false;
@@ -183,7 +215,7 @@ namespace finalProject
                     {
                         numberOfGuesses--;
                         checkForGreen(textBox21, textBox22, textBox23, textBox24, textBox25);
-                        checkForYellow(textBox21, textBox22, textBox23, textBox24, textBox25);
+                        //checkForYellow(textBox21, textBox22, textBox23, textBox24, textBox25);
                         textBox26.Visible = true;
                         textBox27.Visible = true;
                         textBox28.Visible = true;
@@ -206,7 +238,7 @@ namespace finalProject
                     {
                         numberOfGuesses--;
                         checkForGreen(textBox16, textBox17, textBox18, textBox19, textBox20);
-                        checkForYellow(textBox16, textBox17, textBox18, textBox19, textBox20);
+                        //checkForYellow(textBox16, textBox17, textBox18, textBox19, textBox20);
                         textBox21.Visible = true;
                         textBox22.Visible = true;
                         textBox23.Visible = true;
@@ -229,7 +261,7 @@ namespace finalProject
                     {
                         numberOfGuesses--;
                         checkForGreen(textBox11, textBox12, textBox13, textBox14, textBox15);
-                        checkForYellow(textBox11, textBox12, textBox13, textBox14, textBox15);
+                        //checkForYellow(textBox11, textBox12, textBox13, textBox14, textBox15);
                         textBox16.Visible = true;
                         textBox17.Visible = true;
                         textBox18.Visible = true;
@@ -253,7 +285,7 @@ namespace finalProject
                     {
                         numberOfGuesses--;
                         checkForGreen(textBox6, textBox7, textBox8, textBox9, textBox10);
-                        checkForYellow(textBox6, textBox7, textBox8, textBox9, textBox10);
+                        //checkForYellow(textBox6, textBox7, textBox8, textBox9, textBox10);
                         textBox11.Visible = true;
                         textBox12.Visible = true;
                         textBox13.Visible = true;
@@ -276,8 +308,8 @@ namespace finalProject
                     else if (textBox1.Text + textBox2.Text + textBox3.Text + textBox4.Text + textBox5.Text != answer && numberOfGuesses == 6)
                     {
                         numberOfGuesses--;
+                        //checkForYellow(textBox1, textBox2, textBox3, textBox4, textBox5);
                         checkForGreen(textBox1, textBox2, textBox3, textBox4, textBox5);
-                        checkForYellow(textBox1, textBox2, textBox3, textBox4, textBox5);
                         textBox6.Visible = true;
                         textBox7.Visible = true;
                         textBox8.Visible = true;
@@ -301,52 +333,73 @@ namespace finalProject
             {
                 t1.BackColor = Color.Green;
             }
-           
+            else if(t1.Text == answer.Substring(1, 1) && t2.BackColor != Color.Green|| t1.Text == answer.Substring(2, 1) && t3.BackColor != Color.Green|| t1.Text == answer.Substring(3, 1) && t4.BackColor != Color.Green || t1.Text == answer.Substring(4) && t5.BackColor != Color.Green)
+
+            {
+                t1.BackColor = Color.Yellow;
+            }
+
             if (t2.Text == answer.Substring(1, 1))
             {
                 t2.BackColor = Color.Green;
             }
-            
+            else if (t2.Text == answer.Substring(0, 1) && t1.BackColor != Color.Green || t2.Text == answer.Substring(2, 1) && t3.BackColor != Color.Green || t2.Text == answer.Substring(3, 1) && t4.BackColor != Color.Green || t2.Text == answer.Substring(4) && t5.BackColor != Color.Green)
+            {
+                t2.BackColor = Color.Yellow;
+            }
+
             if (t3.Text == answer.Substring(2, 1))
             {
                 t3.BackColor = Color.Green;
             }
-            
+            else if (t3.Text == answer.Substring(0, 1) && t1.BackColor != Color.Green || t3.Text == answer.Substring(1, 1) && t2.BackColor != Color.Green || t3.Text == answer.Substring(3, 1) && t4.BackColor != Color.Green || t3.Text == answer.Substring(4) && t5.BackColor != Color.Green)
+            {
+                t3.BackColor = Color.Yellow;
+            }
+
             if (t4.Text == answer.Substring(3, 1))
             {
                 t4.BackColor = Color.Green;
             }
-            
+            else if (t4.Text == answer.Substring(1, 1) && t2.BackColor != Color.Green || t4.Text == answer.Substring(2, 1) && t3.BackColor != Color.Green || t4.Text == answer.Substring(0, 1) && t1.BackColor != Color.Green || t4.Text == answer.Substring(4) && t5.BackColor != Color.Green)
+            {
+                t4.BackColor = Color.Yellow;
+            }
+
             if (t5.Text == answer.Substring(4))
             {
                 t5.BackColor = Color.Green;
+            }
+            else if (t5.Text == answer.Substring(1, 1) && t2.BackColor != Color.Green || t5.Text == answer.Substring(2, 1) && t3.BackColor != Color.Green || t5.Text == answer.Substring(3, 1) && t4.BackColor != Color.Green || t5.Text == answer.Substring(0, 1) && t1.BackColor != Color.Green)
+            {
+                t5.BackColor = Color.Yellow;
             }
 
         }
 
     private void checkForYellow(TextBox t1, TextBox t2, TextBox t3, TextBox t4, TextBox t5)
         {
-            if (t1.Text == answer.Substring(1, 1) || t1.Text == answer.Substring(2, 1) || t1.Text == answer.Substring(3, 1) || t1.Text == answer.Substring(4))
+            if (t1.Text == answer.Substring(1, 1) && t2.BackColor != Color.Green || t1.Text == answer.Substring(2, 1) && t3.BackColor != Color.Green || t1.Text == answer.Substring(3, 1) && t4.BackColor != Color.Green || t1.Text == answer.Substring(4) && t5.BackColor != Color.Green)
             {
                 t1.BackColor = Color.Yellow;
             }
 
-            if (t2.Text == answer.Substring(0, 1) || t2.Text == answer.Substring(2, 1) || t2.Text == answer.Substring(3, 1) || t2.Text == answer.Substring(4))
+            if (t2.Text == answer.Substring(0, 1) && t1.BackColor != Color.Green || t2.Text == answer.Substring(2, 1) && t3.BackColor != Color.Green || t2.Text == answer.Substring(3, 1) && t4.BackColor != Color.Green || t2.Text == answer.Substring(4) && t5.BackColor != Color.Green)
             {
                 t2.BackColor = Color.Yellow;
             }
 
-            if (t3.Text == answer.Substring(1, 1) || t3.Text == answer.Substring(1, 1) || t3.Text == answer.Substring(3, 1) || t3.Text == answer.Substring(4))
+            if (t3.Text == answer.Substring(0, 1) && t1.BackColor != Color.Green || t3.Text == answer.Substring(1, 1) && t2.BackColor != Color.Green || t3.Text == answer.Substring(3, 1) && t4.BackColor != Color.Green || t3.Text == answer.Substring(4) && t5.BackColor != Color.Green)
             {
                 t3.BackColor = Color.Yellow;
             }
 
-            if (t4.Text == answer.Substring(1, 1) || t4.Text == answer.Substring(2, 1) || t4.Text == answer.Substring(0, 1) || t4.Text == answer.Substring(4))
+            if (t4.Text == answer.Substring(1, 1) && t2.BackColor != Color.Green || t4.Text == answer.Substring(2, 1) && t3.BackColor != Color.Green || t4.Text == answer.Substring(0, 1) && t1.BackColor != Color.Green || t4.Text == answer.Substring(4) && t5.BackColor != Color.Green)
             {
                 t4.BackColor = Color.Yellow;
             }
 
-            if (t5.Text == answer.Substring(1, 1) || t5.Text == answer.Substring(2, 1) || t5.Text == answer.Substring(3, 1) || t5.Text == answer.Substring(0, 1))
+            if (t5.Text == answer.Substring(1, 1) && t2.BackColor != Color.Green || t5.Text == answer.Substring(2, 1) && t3.BackColor != Color.Green || t5.Text == answer.Substring(3, 1) && t4.BackColor != Color.Green || t5.Text == answer.Substring(0, 1) && t1.BackColor != Color.Green)
             {
                 t5.BackColor = Color.Yellow;
             }
